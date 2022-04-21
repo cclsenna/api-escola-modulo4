@@ -1,0 +1,22 @@
+{
+  "name": "api-escola-modulo4",
+  "version": "1.0.0",
+  "description": "Projeto de Conclusão do Módulo 4 Resilia Full Stack Web",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cclsenna/api-escola-modulo4.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cclsenna/api-escola-modulo4/issues"
+  },
+  "homepage": "https://github.com/cclsenna/api-escola-modulo4#readme",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}

@@ -1,9 +1,11 @@
 {
+  "type": "module",
   "name": "api-escola-modulo4",
   "version": "1.0.0",
   "description": "Projeto de Conclusão do Módulo 4 Resilia Full Stack Web",
-  "main": "index.js",
+  "main": "./server.js",
   "scripts": {
+    "dev": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,5 +20,8 @@
   "homepage": "https://github.com/cclsenna/api-escola-modulo4#readme",
   "dependencies": {
     "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }

@@ -1,9 +1,9 @@
 
 class AlunoModel {
-    constructor (nome, sobrenome, datanascimento) {
-        this.nome = nome;
-        this.sobrenome = sobrenome;
-        this.datanascimento = datanascimento
+    constructor (nome, sobrenome, dataNascimento) {
+        this._nome = nome;
+        this._sobrenome = sobrenome;
+        this._dataNascimento = dataNascimento;
     }
     
 }

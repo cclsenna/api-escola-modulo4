@@ -11,7 +11,19 @@ class AlunoController {
             res.json(aluno)
         }).catch((erro)=> {console.log(erro)})
     }
+    static cadastrar = (req,res) => {
 
+            const alunoDao = new AlunoDao(db)
+            const body = req.body;
+            const novoAluno = new AlunoModel(body.nome, body.sobrenome, body.dataNascimento);
+    
+            alunoDao.inserir(novoAluno)
+            .then((resultado)=> {
+                res.json(resultado)
+            }).catch((erro)=> {
+                res.json(erro)
+            })
+    }
     
 
 }

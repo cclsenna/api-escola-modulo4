@@ -19,7 +19,9 @@
   },
   "homepage": "https://github.com/cclsenna/api-escola-modulo4#readme",
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "sqlite": "^4.0.25",
+    "sqlite3": "^5.0.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

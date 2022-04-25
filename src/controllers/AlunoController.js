@@ -11,6 +11,18 @@ class AlunoController {
             res.json(aluno)
         }).catch((erro)=> {console.log(erro)})
     }
+    static buscaAlunoPorId = (req,res) => {
+        const alunoDao = new AlunoDao(db)
+        const {id} = req.params
+
+        alunoDao.listaUm(id)
+        .then((resultado) => {
+            res.json(resultado)
+        }).catch((erro)=> {
+            console.log(erro)
+            res.json(erro)
+        })
+    }
     static cadastrar = (req,res) => {
 
             const alunoDao = new AlunoDao(db)

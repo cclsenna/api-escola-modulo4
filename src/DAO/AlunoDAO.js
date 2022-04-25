@@ -12,7 +12,7 @@ class AlunoDao {
           return resolve(resultado);
         } else {
           console.log(erro);
-          return reject("Não foi possivel listar aluno");
+          return reject("Não foi possível listar aluno");
         }
       });
     });
@@ -21,7 +21,7 @@ class AlunoDao {
   async listaUm(id) {
     return await new Promise((resolve, reject) => {
       const query = "SELECT * FROM alunos WHERE id = ?";
-
+    
       this._db.get(query, [id], (erro, resultado) => {
         if (!erro) {
           return resolve(resultado);
@@ -34,7 +34,7 @@ class AlunoDao {
 
   async inserir(aluno) {
     return await new Promise((resolve, reject) => {
-      const query = `INSERT INTO alunos (nome,sobrenome,dataNascimento) values (?,?,?)`;
+      const query = "INSERT INTO alunos (nome,sobrenome,dataNascimento) values (?,?,?)";
 
       this._db.run(
         query, [aluno._nome, aluno._sobrenome, aluno._dataNascimento],
@@ -43,12 +43,30 @@ class AlunoDao {
             return resolve("Aluno cadastrado com sucesso");
           } else {
             console.log(erro);
-            return reject("Não foi possivel cadastrar aluno");
+            return reject("Não foi possível cadastrar aluno");
           }
         }
       );
     });
   }
+
+  async deletar(id) {
+    return await new Promise((resolve, reject) => {
+      const query = "DELETE FROM alunos WHERE id = ?";
+
+      this._db.get(query, [id], (erro, resultado) => {
+          if (!erro) {
+            return resolve(resultado);
+          } else {
+            console.log(erro);
+            return reject("Não foi possível deletar aluno");
+          }
+        }
+      );
+    });
+  }
+
+ 
 }
 
 export default AlunoDao;

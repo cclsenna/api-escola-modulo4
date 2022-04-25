@@ -1,12 +1,8 @@
-const express = require("express");
-const req = require("express/lib/request");
-const res = require("express/lib/response");
+import express from "express";
+import router from "./routes/routes.js";
+
 const app = express();
+app.use(express.json());
+router(app);
 
-app.get('/', (req, res) => {
-    res.send("ola mundo");
-})
-
-app.post("/")
-
-module.exports = app;
+export default app;

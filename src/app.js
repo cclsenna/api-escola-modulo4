@@ -1,8 +1,8 @@
 import express from "express";
-import router from "./routes/routes.js";
+import routerAluno from "./routes/routes.js";
 
 const app = express();
 app.use(express.json());
-router(app);
+routerAluno(app);
 
 export default app;

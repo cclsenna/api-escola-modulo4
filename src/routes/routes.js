@@ -1,9 +1,11 @@
 import AlunoController from "../controllers/AlunoController.js";
 
-const router = (app) => {
-  app.get("/aluno", AlunoController.exibirAlunos);
-  app.get("/aluno/:id", AlunoController.buscaAlunoPorId)
+const routerAluno = (app) => {
+  app.get("/aluno", AlunoController.exibirTodos);
+  app.get("/aluno/:id", AlunoController.exibirUmPorId);
   app.post("/aluno", AlunoController.cadastrar);
+  app.delete("/aluno/:id", AlunoController.excluir);
+  
 };
 
-export default router;
+export default routerAluno;

@@ -1,9 +1,10 @@
 class AlunoDao {
+
   constructor(db) {
     this._db = db;
   }
 
-  async lista() {
+  async listarTodos() {
     return await new Promise((resolve, reject) => {
       const query = "SELECT * FROM alunos";
 
@@ -11,14 +12,13 @@ class AlunoDao {
         if (!erro) {
           return resolve(resultado);
         } else {
-          console.log(erro);
-          return reject("Não foi possível listar aluno");
+          return reject("Não foi possivel listar Tabela");
         }
       });
     });
   }
 
-  async listaUm(id) {
+  async listarUm(id) {
     return await new Promise((resolve, reject) => {
       const query = "SELECT * FROM alunos WHERE id = ?";
     
@@ -26,7 +26,7 @@ class AlunoDao {
         if (!erro) {
           return resolve(resultado);
         } else {
-          return reject("Aluno não encontrado");
+          return reject(erro);
         }
       });
     });
@@ -40,10 +40,10 @@ class AlunoDao {
         query, [aluno._nome, aluno._sobrenome, aluno._dataNascimento],
         (erro, resultado) => {
           if (!erro) {
-            return resolve("Aluno cadastrado com sucesso");
+            return resolve("Aluno cadastrado com sucesso!");
           } else {
             console.log(erro);
-            return reject("Não foi possível cadastrar aluno");
+            return reject("Não foi possível cadastrar aluno!");
           }
         }
       );
@@ -56,16 +56,30 @@ class AlunoDao {
 
       this._db.get(query, [id], (erro, resultado) => {
           if (!erro) {
-            return resolve(resultado);
+            return resolve("Aluno deletado com sucesso!");
           } else {
             console.log(erro);
-            return reject("Não foi possível deletar aluno");
+            return reject("Não foi possível deletar aluno!");
           }
         }
       );
     });
   }
 
+  async atualizar(id, aluno) {
+    return await new Promise((resolve, reject) => {
+      const query = `UPDATE alunos SET nome = ?, sobrenome = ?, dataNascimento = ? WHERE id = ?`;
+
+      this._db.run(query, [aluno._nome, aluno._sobrenome, aluno._dataNascimento, id], (erro, resultado) => {
+          if (!erro) {
+            return resolve("Aluno matriculado com sucesso!");
+          } else {
+            return reject("Não foi possível atualizar aluno!");
+          }
+        }
+      );
+    });
+  }
  
 }
 

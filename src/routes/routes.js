@@ -1,5 +1,4 @@
 import AlunoController from "../controllers/AlunoController.js";
-//import ProfessorController from  "../controllers/ProfessorController.js";
 
 const router = (app) => {
   app.get("/aluno", AlunoController.exibirAlunos);

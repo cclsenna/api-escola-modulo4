@@ -7,12 +7,12 @@ class AlunoController {
   static exibirTodos = (req, res) => {
     const alunoDao = new AlunoDao(db);
     alunoDao
-      .lista()
+      .listarTodos()
       .then((aluno) => {
         res.json(aluno);
       })
       .catch((erro) => {
-        console.log(erro);
+        res.json(erro);
       });
   };
 
@@ -22,13 +22,13 @@ class AlunoController {
     const { id } = req.params;
 
     alunoDao
-      .listaUm(id)
+      .listarUm(id)
       .then((resultado) => {
         res.json(resultado);
       })
       .catch((erro) => {
         console.log(erro);
-        res.json(erro);
+        res.status(400).json(erro);
       });
   };
 
@@ -40,10 +40,10 @@ class AlunoController {
 
     alunoDao.inserir(novoAluno)
       .then((resultado) => {
-        res.json(resultado);
+        res.status(201).json(resultado);
       })
       .catch((erro) => {
-        res.json(erro);
+        res.status(400).json(erro);
       });
   };
 
@@ -57,11 +57,25 @@ class AlunoController {
         res.json(resultado);
       })
       .catch((erro) => {
-        res.json(erro);
+        res.status(400).json(erro);
       });
   };
 
-  
+  static atualiza = (req, res) => {
+    const body = req.body;
+    const { id } = req.params;
+    const alunoDao = new AlunoDao(db);
+    const atualizaAluno = new AlunoModel(body.nome, body.sobrenome, body.dataNascimento);
+
+    alunoDao.atualizar(id,atualizaAluno)
+      .then((resultado) => {
+        res.json(resultado);
+      })
+      .catch((erro) => {
+        res.status(400).json(erro);
+      });
+
+  }
 }
 
 export default AlunoController;

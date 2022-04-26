@@ -1,9 +1,8 @@
 /*
 Esse arquivo deve ser executado apenas uma vez para que a o banco seja criado e populado
 */
-import sqlite3 from "sqlite3";
+import db from "./configDb.js";
 
-const db = new sqlite3.Database('./src/infra/database.db');
 
 
 // criando tabela alunos 
@@ -20,9 +19,10 @@ const ALUNOS_SCHEMA = `CREATE TABLE IF NOT EXISTS alunos (
 const INSERIR_ALUNOS = `
 INSERT INTO alunos (nome, sobrenome, dataNascimento)
 VALUES 
-    ('Arnaldo','Golimar', '1995/06/18'),
-    ('Zé', 'Raimundo', '1990/05/02'),
-    ('Maria', 'do Socorro', '1980/01/15')
+    ('Lionel','Messi', '1995/06/18'),
+    ('Cristiano', 'Ronaldo', '1990/05/02'),
+    ('Sergio', 'Aguero', '1980/01/15'),
+    ('Bruno', 'Henrique', '1980/01/15')
 `
 
 function criaTabelaAl() {
@@ -31,14 +31,14 @@ function criaTabelaAl() {
     });
 }
 
-// function populaTabelaAl() {
-//     db.run(INSERIR_ALUNOS, (error)=> {
-//        if (error) console.log("Erro ao popular tabela de alunos");
-//     });
-// }
+function populaTabelaAl() {
+    db.run(INSERIR_ALUNOS, (error)=> {
+       if (error) console.log("Erro ao popular tabela de alunos");
+    });
+}
 
 db.serialize( () => {
-    criaTabelaAl();
+    // criaTabelaAl();
     // populaTabelaAl();
 });
 

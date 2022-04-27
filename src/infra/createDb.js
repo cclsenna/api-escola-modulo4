@@ -82,4 +82,5 @@ db.serialize( () => {
     populaTabelaProf();
 });
 
-export default db;
+
+

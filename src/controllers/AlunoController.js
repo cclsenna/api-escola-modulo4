@@ -1,6 +1,6 @@
 import AlunoModel from "../models/AlunoModel.js";
 import AlunoDao from "../DAO/AlunoDAO.js";
-import db from "../infra/createDb.js";
+import db from "../infra/configDb.js";
 
 class AlunoController {
 
@@ -36,7 +36,10 @@ class AlunoController {
   static cadastrar = (req, res) => {
     const alunoDao = new AlunoDao(db);
     const body = req.body;
+    console.log(body);
     const novoAluno = new AlunoModel(body.nome, body.sobrenome, body.dataNascimento);
+    console.log('aaaa');
+    console.log(novoAluno)
 
     alunoDao.inserir(novoAluno)
       .then((resultado) => {

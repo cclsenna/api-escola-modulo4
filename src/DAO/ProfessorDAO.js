@@ -29,6 +29,7 @@ class ProfessorDAO{
         });
 
     }
+    
 
     async inserir(novoProf){
         return await new Promise((resolve,reject)=>{
@@ -40,6 +41,20 @@ class ProfessorDAO{
         });
 
     }
+
+    
+
+    async remover(id){
+        return await new Promise((resolve,reject)=>{
+            const query='delete from professores where id=?';
+            this._db.run(query,[id],erro=>{
+                if(!erro) return resolve('Registro deletado com sucesso');
+                return reject (erro);
+            })
+        })
+    }
+
+    
 
 
 }

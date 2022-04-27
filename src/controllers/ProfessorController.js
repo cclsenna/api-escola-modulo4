@@ -27,7 +27,7 @@ class ProfessorController{
             res.json(result);
         })
         .catch(error=>{
-            console.log(error);
+            res.json(error);
         })
 
     }
@@ -47,6 +47,23 @@ class ProfessorController{
         
 
     }
+
+    static excluir=(req,res)=>{
+        const profDAO=new ProfessorDAO(db);
+        const {id}=req.params;
+
+        profDAO.remover(id)
+        .then(result=>{
+            res.status(200).json(result);
+        })
+        .catch(error=>{
+            res.status(400).json(error);
+        })
+        
+    }
+
+
+
 }
 
 export default ProfessorController;

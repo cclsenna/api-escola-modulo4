@@ -1,11 +1,11 @@
 import AlunoController from "../controllers/AlunoController.js";
 
 const routerAluno = (app) => {
-  app.get("/aluno", AlunoController.exibirTodos);
-  app.get("/aluno/:id", AlunoController.exibirUmPorId);
-  app.post("/aluno", AlunoController.cadastrar);
-  app.delete("/aluno/:id", AlunoController.excluir);
-  app.patch("/aluno/:id", AlunoController.atualiza);
+  app.get("/alunos", AlunoController.exibirTodos);
+  app.get("/alunos/:matricula", AlunoController.exibirUmPorMatricula);
+  app.post("/alunos", AlunoController.cadastrar);
+  app.delete("/alunos/:matricula", AlunoController.excluir);
+  app.patch("/alunos/:matricula", AlunoController.atualiza);
 };
 
 export default routerAluno;

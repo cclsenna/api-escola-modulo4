@@ -50,11 +50,20 @@ class ProfessorDAO{
             this._db.run(query,[id],erro=>{
                 if(!erro) return resolve('Registro deletado com sucesso');
                 return reject (erro);
-            })
-        })
+            });
+        });
     }
 
-    
+    async alterar(id,prof){
+        return await new Promise((resolve,reject)=>{
+            const query='update professores set nome=?,sobrenome=?,dataNascimento=?,materia=? where id=?';
+            this._db.run(query,[prof._nome,prof._sobrenome,prof._nascimento,prof._materia,id],erro=>{
+                if(!erro) return resolve ('Registro alterado com sucesso')
+                return  reject(erro);
+            });
+
+        });
+    }   
 
 
 }

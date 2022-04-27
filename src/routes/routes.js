@@ -8,4 +8,5 @@ const routerAluno = (app) => {
   app.patch("/aluno/:id", AlunoController.atualiza);
 };
 
+
 export default routerAluno;

@@ -18,11 +18,11 @@ class AlunoDao {
     });
   }
 
-  async listarUm(id) {
+  async listarUm(matricula) {
     return await new Promise((resolve, reject) => {
-      const query = "SELECT * FROM alunos WHERE id = ?";
+      const query = "SELECT * FROM alunos WHERE matricula = ?";
     
-      this._db.get(query, [id], (erro, resultado) => {
+      this._db.get(query, [matricula], (erro, resultado) => {
         if (!erro) {
           return resolve(resultado);
         } else {
@@ -34,47 +34,47 @@ class AlunoDao {
 
   async inserir(aluno) {
     return await new Promise((resolve, reject) => {
-      const query = "INSERT INTO alunos (nome,sobrenome,dataNascimento) values (?,?,?)";
+      const query = "INSERT INTO alunos (nome,sobrenome,dataNascimento,turma) values (?,?,?,?)";
 
       this._db.run(
-        query, [aluno._nome, aluno._sobrenome, aluno._dataNascimento],
+        query, [aluno._nome, aluno._sobrenome, aluno._dataNascimento,aluno._turma],
         (erro, resultado) => {
           if (!erro) {
-            return resolve("Aluno cadastrado com sucesso!");
+            return resolve("Aluno cadastrado");
           } else {
-            console.log(erro);
-            return reject("Não foi possível cadastrar aluno!");
+            
+            return reject("falha no cadastro");
           }
         }
       );
     });
   }
 
-  async deletar(id) {
+  async deletar(matricula) {
     return await new Promise((resolve, reject) => {
-      const query = "DELETE FROM alunos WHERE id = ?";
+      const query = "DELETE FROM alunos WHERE matricula = ?";
 
-      this._db.get(query, [id], (erro, resultado) => {
+      this._db.get(query, [matricula], (erro, resultado) => {
           if (!erro) {
-            return resolve("Aluno deletado com sucesso!");
+            return resolve("Aluno descadastrado com sucesso!");
           } else {
             console.log(erro);
-            return reject("Não foi possível deletar aluno!");
+            return reject("Não foi possível descadastrar aluno!");
           }
         }
       );
     });
   }
 
-  async atualizar(id, aluno) {
+  async atualizar(matricula, aluno) {
     return await new Promise((resolve, reject) => {
-      const query = `UPDATE alunos SET nome = ?, sobrenome = ?, dataNascimento = ? WHERE id = ?`;
+      const query = `UPDATE alunos SET nome = ?, sobrenome = ?, dataNascimento = ?, turma = ? WHERE matricula = ?`;
 
-      this._db.run(query, [aluno._nome, aluno._sobrenome, aluno._dataNascimento, id], (erro, resultado) => {
+      this._db.run(query, [aluno._nome, aluno._sobrenome, aluno._dataNascimento, aluno._turma, matricula], (erro, resultado) => {
           if (!erro) {
-            return resolve("Aluno matriculado com sucesso!");
+            return resolve("Cadastro atualizado com sucesso!");
           } else {
-            return reject("Não foi possível atualizar aluno!");
+            return reject("Não foi possível atualizar cadastro!");
           }
         }
       );

@@ -35,7 +35,7 @@ class ProfessorDAO{
         return await new Promise((resolve,reject)=>{
             const query='insert into professores (nome,sobrenome,dataNascimento,materia) values (?,?,?,?)';
             this._db.run(query,[novoProf._nome,novoProf._sobrenome,novoProf._nascimento,novoProf._materia],erro=>{
-                if(!erro) return resolve('dados isneridos com sucesso');
+                if(!erro) return resolve('Dados inseridos com sucesso');
                 return reject(erro);
             });
         });

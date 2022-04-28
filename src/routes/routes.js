@@ -8,4 +8,5 @@ const routerAluno = (app) => {
   app.patch("/alunos/:matricula", AlunoController.atualiza);
 };
 
+
 export default routerAluno;

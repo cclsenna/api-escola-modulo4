@@ -36,6 +36,15 @@ class ProfessorController{
         const profDAO=new ProfessorDAO(db);
         const body=req.body;
         const novoProf=new ProfessorModel(body.nome,body.sobrenome,body.dataNascimento,body.materia);
+        const realizaValidacao=ProfessorModel.valida(body);
+
+        if(realizaValidacao!=true){
+            res.status(400).json({
+                message: "Erro ao criar cadastro",
+                errors: realizaValidacao
+              });
+            return;
+        }
 
         profDAO.inserir(novoProf)
         .then(result=>{
@@ -67,6 +76,16 @@ class ProfessorController{
         const {id}=req.params;
         const body=req.body;
         const novoProf=new ProfessorModel(body.nome,body.sobrenome,body.dataNascimento,body.materia);
+        const realizaValidacao=ProfessorModel.valida(body);
+
+
+        if(realizaValidacao!=true){
+            res.status(400).json({
+                message: "Erro ao atualizar cadastro",
+                errors: realizaValidacao
+              });
+            return;
+        }
 
         profDAO.alterar(id,novoProf)
         .then(result=>{

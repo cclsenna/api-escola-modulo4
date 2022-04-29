@@ -5,10 +5,10 @@ Este projeto foi realizado como parte da conclusão do módulo 4 do curso de des
 <br>
 
 ## Tecnologias Utilizadas no desenvolvimento
-NodeJs (Express,Nodemon,Fastest Validator e SQL Lite)
+NodeJs (Express, Nodemon, Fastest Validator e SQLlite)
 
 
-## Com executar o projeto ?
+## Como executar o projeto ?
 
 ### Realizar o clone do diretório
 
@@ -24,14 +24,14 @@ $ git clone git@github.com:cclsenna/api-escola-modulo4.git
 ```
 
 ### Instalação das dependências 
-- Todas as dependências necessárias já estão listadas no package.json. Para a primeira execução, realizar o download de todos os pacotes necessários.
+- Todas as dependências necessárias já estão configuradas no package.json,bastanto apenas realizar o download. Para a primeira execução, realizar o download de todos os pacotes necessários.
 
 ```
 $ npm install
 ```
 
 ### Criação do Banco de Dados (opcional)
-- Caso deseje recriar o banco de dados,executar o arquivo createDb.Js apenas na primeira vez para realizar a geração do banco de dados. Este arquivo irá gerar novamente todas as tabelas necessárias e popular com dados de fábrica para que possam ser realizados eventuais testes.
+- Caso deseje recriar o banco de dados, executar o arquivo **createDb.Js** apenas na primeira vez para realizar a geração do banco de dados. Este arquivo irá gerar novamente todas as tabelas necessárias e popular com dados de fábrica para que possam ser realizados eventuais testes.
 
 ```
 $ node createDb.js
@@ -45,26 +45,61 @@ $ node server.js
 ## Rotas disponíveis
 As rotas criadas estão descritas nas seções abaixao,separados por cada entidade. 
 
-### Alunos
+### ALUNOS
 
 - **GET**
 
-Request
+Selecionar registros de alunos já existentes
+
+Request - busca todos os registros da entidade
 ```
 {url}/alunos
 ```
 
-Request
+Request - busca de registro único por matrícula
 ```
 {url}/alunos/{matricula}
 ```
 
+Exemplo Response
+```
+[
+    {
+        "id": 1,
+        "nome": "Lionel",
+        "sobrenome": "Messi",
+        "dataNascimento": "1995/06/18"
+    },
+    {
+        "id": 2,
+        "nome": "Cristiano",
+        "sobrenome": "Ronaldo",
+        "dataNascimento": "1990/05/02"
+    },
+    {
+        "id": 3,
+        "nome": "Sergio",
+        "sobrenome": "Aguero",
+        "dataNascimento": "1980/01/15"
+    },
+    {
+        "id": 4,
+        "nome": "Bruno",
+        "sobrenome": "Henrique",
+        "dataNascimento": "1980/01/15"
+    }
+]
+
+```
 - **POST**
 
+Cadastramento de novos alunos
+```
 {url}/alunos
 ```
-Request Body - Json
 
+Request Body - Json
+```
 {
     "nome": {string},
     "sobrenome": {string},
@@ -74,8 +109,10 @@ Request Body - Json
 ```
 
 - **PATCH**
-
+Atualizar registro de aluno já existente
+```
 {url}/alunos/{matricula}
+```
 
 Request Body - Json
 ```
@@ -87,33 +124,81 @@ Request Body - Json
 }
 ```
 
+
 - **DELETE**
 
+Request - deleção de um único registro por matrícula
+```
 {url}/alunos/{matricula}
+```
 
-### Professores
+### PROFESSORES
 - **GET**
+
+Request - busca todos os registros da entidade
+```
 {url}/professor
+```
+Request - busca de registro único por matrícula
 
+```
 {url}/professor/{matricula}
+```
+Exemplo Response
+```
+{
+    "id": 1,
+    "nome": "Joel",
+    "sobrenome": "Santana",
+    "dataNascimento": "1950/06/18",
+    "materia": "matematica"
+}
 
+```
 
 
 - **POST**
+Cadastramento de novos professsores
+```
 {url}/professor
+```
+Request Body(Json)
+```
+ {
+        "nome": "Joao",
+        "sobrenome": "Teste",
+        "dataNascimento": "1988/06/18",
+        "materia": "geografia"
+    }
+```
 
 
 
 - **PATCH**
+Atualizar registro de professor já existente
+```
 {url}/professor/{matricula}
-
+```
+Request Body - Json
+```
+{
+    "nome": {string},
+    "sobrenome": {string},
+    "dataNascimento": {string},
+    "materia": {integer}
+}
+```
 
 
 - **DELETE**
+
+Exclusão de registro existente na base
+```
 {url}/professor/{matricula}
+```
 
 
-### Funcionários
+### FUNCIONÁRIOS
 - **GET**
 
 

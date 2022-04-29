@@ -7,7 +7,7 @@ class AlunoController {
     const alunoDao = new AlunoDao(db);
 
     alunoDao
-      .listarTodos()
+    .listarTodos()
       .then((aluno) => {
         res.status(200).json(aluno);
       })

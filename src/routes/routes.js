@@ -1,5 +1,6 @@
 import AlunoController from "../controllers/AlunoController.js";
 import ProfessorController from "../controllers/ProfessorController.js";
+import FuncionariosController from "../controllers/funcionariosController.js";
 
 
 const routerAluno = (app) => {
@@ -16,6 +17,11 @@ const RouterProfessor=(app)=>{
   app.post('/professor',ProfessorController.cadastrar);
   app.delete('/professor/:id',ProfessorController.excluir);
   app.patch('/professor/:id',ProfessorController.atualizar);
+
+}
+
+const RouterFuncionarios = (app) =>{
+  app.get('/funcionarios', FuncionariosController.TodosRegistros);
 
 }
 

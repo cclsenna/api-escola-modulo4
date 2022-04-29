@@ -11,8 +11,7 @@ routerAluno(app);
 RouterProfessor(app);
 
 app.get("/",(req,res)=>{
-    res.send(`Bem vindo a API escola
-    Para mais informações sobre usabilidade,acessar https://github.com/cclsenna/api-escola-modulo4`);
+    res.send(`Bem vindo a API escola. Para mais informações sobre usabilidade, acessar https://github.com/cclsenna/api-escola-modulo4`);
 
 });
 

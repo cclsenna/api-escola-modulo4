@@ -26,7 +26,7 @@ VALUES
     ('Giovanni', 'Clayton', '1994/07/2', 13),
     ('Edu', 'Moreira', '1991/05/20', 13),
     ('Rodrigo', 'William', '1995/06/18', 13),
-    ('Paulo', 'Reis', '1995/01/13', 13),
+    ('Paulo', 'Reis', '1995/01/13', 13);
 
 `
 

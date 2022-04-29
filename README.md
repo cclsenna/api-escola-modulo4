@@ -7,8 +7,14 @@ Este projeto foi realizado como parte da conclusão do módulo 4 do curso de des
 ## Tecnologias Utilizadas no desenvolvimento
 NodeJs (Express, Nodemon, Fastest Validator e SQLlite)
 
+## Acesso à API
+A API foi hospedada no Heroku,o que permite o consumo via internet.
+URL : https://app-escola-resilia.herokuapp.com
+Para verificar como utilzar o serviço, ver a seção de "Rotas Disponíveis" neste documento
+
 
 ## Como executar o projeto ?
+O procedimento abaixo se refere caso deseje avaliar o código e executar localmente.
 
 ### Realizar o clone do diretório
 
@@ -65,28 +71,18 @@ Exemplo Response
 ```
 [
     {
-        "id": 1,
-        "nome": "Lionel",
-        "sobrenome": "Messi",
-        "dataNascimento": "1995/06/18"
+        "matricula": 1,
+        "nome": "Iata",
+        "sobrenome": "Anderson",
+        "dataNascimento": "1991/01/15",
+        "turma": 13
     },
     {
-        "id": 2,
-        "nome": "Cristiano",
-        "sobrenome": "Ronaldo",
-        "dataNascimento": "1990/05/02"
-    },
-    {
-        "id": 3,
-        "nome": "Sergio",
-        "sobrenome": "Aguero",
-        "dataNascimento": "1980/01/15"
-    },
-    {
-        "id": 4,
-        "nome": "Bruno",
-        "sobrenome": "Henrique",
-        "dataNascimento": "1980/01/15"
+        "matricula": 2,
+        "nome": "Karla",
+        "sobrenome": "Valeriano",
+        "dataNascimento": "1993/10/13",
+        "turma": 13
     }
 ]
 

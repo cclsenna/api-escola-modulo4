@@ -79,7 +79,7 @@ class AlunoController {
     
     if (validador != true) {
       return res.status(400).json({
-        message: "Erro atualizar cadastro",
+        message: "Erro ao atualizar cadastro",
         errors: AlunoModel.validaDados(body),
       });
     }

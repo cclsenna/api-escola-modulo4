@@ -1,31 +1,36 @@
-import funcionariosModel from "../models/funcionariosModel"
-import funcionariosDAO from "../DAO/funcionariosDAO"
-import db from "../infra/createDb"
-import res from "express/lib/response"
+const res = require('express/lib/response')
+const bd = require('../infra/bd')
+const funcionarios = require('../models/funcionariosModel')
+const funcionariosDao = require('../DAO/funcionariosDao')
 
-class funcionariosController {
 
-    static exibirFuncionarios = (req, res) => {
-        const funcionariosDAO = new funcionariosDAO(db)
-        funcionariosDAO.lista()
-        .then((funcionarios) => {
-            res.json(funcionarios)
-        }).catch((erro) => {console.log(erro)})
-    }
+const funcionariosController = (app)=> {const newDao = new funcionariosDao(bd)
 
-static cadastrar = (req, res) => {
-        const funcionariosDAO = new funcionariosDAO(db)
-        const body = req.body;
-        const novoFuncionarios = new 
-        funcionariosModel(body.nome, body.sobrenome, body.dataNascimento);
+    /*Get = Read do CRUD e exibe registros*/
+app.get('/funcionarios', async (req, res) => {
 
-        funcionariosDAO.inserir(novoFuncionarios)
-        .then((resultado) => {
-            res.json(resultado)
-        }).catch((erro) => {
-            res.json(erro)
-        })
+  try{
+    const funcionarios = await funcionariosDao.listFuncionarios()
+  res.send(funcionarios)
+  }catch(error){
+    res.send(error)
+  }
+  
+  })
+  
+  app.post('/funcionarios', function (req, res) {
+       res.send('Rota POST de funcionarios ativada: funcionarios adicionado ao banco de dados')
+
+    bd.run(`INSERT INTO USUARIOS (NOME, EMAIL, SENHA) VALUES (?,?,?)`,
+    [novoFuncionarios.nome, novoFuncionarios.email, novoFuncionarios.senha],
+    (error) =>{
+      if (error){
+        res.json(error)
+      }else{
+        res.json("Deu certo inserir")
+      }
+    })
+  })
+  
 }
-}
-
-export default funcionariosController;
+module.exports = funcionariosController

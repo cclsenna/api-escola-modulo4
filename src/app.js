@@ -1,6 +1,5 @@
 import express from "express";
-import routerAluno from "./routes/routes.js";
-import RouterProfessor from "./routes/routesProf.js"
+import {routerAluno,RouterProfessor} from "./routes/routes.js";
 
 const app = express();
 app.use(express.json());

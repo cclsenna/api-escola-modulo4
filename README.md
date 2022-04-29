@@ -37,7 +37,6 @@ $ npm install
 $ node createDb.js
 ```
 
-
 ### Iniciar o servidor
 ```
 $ node server.js
@@ -50,18 +49,21 @@ As rotas criadas estão descritas nas seções abaixao,separados por cada entida
 
 - **GET**
 
+Request
 ```
 {url}/alunos
 ```
 
-
+Request
+```
 {url}/alunos/{matricula}
+```
 
 - **POST**
 
 {url}/alunos
 ```
-Body(Json)
+Request Body - Json
 
 {
     "nome": {string},
@@ -75,7 +77,7 @@ Body(Json)
 
 {url}/alunos/{matricula}
 
-Body (Json)
+Request Body - Json
 ```
 {
     "nome": {string},

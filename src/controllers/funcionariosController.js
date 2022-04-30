@@ -25,7 +25,7 @@ class FuncionariosController {
     /* ------------------2º Metodo Get - exibir um registro por id------------------*/
 
     static exibirUm = (req, res) => {
-        const funcionariosDAO = new funcionariosDAO(db);
+        const funcionariosDAO = new FuncionariosDAO(db);
         const { id } = req.params;
 
         funcionariosDAO
@@ -53,7 +53,7 @@ class FuncionariosController {
                 errors: FuncionariosModel.validaDados(body),
             });
         }
-        const novoFuncionarios = new FuncionariosModel(body.nome, body.sobrenome, body.dataNascimento, body.turma);
+        const novoFuncionarios = new FuncionariosModel(body.nome, body.sobrenome, body.dataNascimento, body.profissao);
 
         funcionariosDAO
             .inserir(novoFuncionarios)
@@ -71,7 +71,7 @@ class FuncionariosController {
         const { id } = req.params;
 
         funcionariosDAO
-            .deletar(id)
+            .excluir(id)
             .then((resultado) => {
                 res.status(200).json(resultado);
             })

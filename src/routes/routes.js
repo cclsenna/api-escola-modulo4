@@ -24,7 +24,7 @@ const RouterFuncionarios = (app) =>{
   app.get('/funcionarios', FuncionariosController.TodosRegistros);
   app.get('/funcionarios/:id', FuncionariosController.exibirUm);
   app.post('/funcionarios', FuncionariosController.Cadastrar);
-  app.delete('funcionarios/:id', FuncionariosController.Excluir);
+  app.delete('/funcionarios/:id', FuncionariosController.Excluir);
   app.patch('/funcionarios/:id', FuncionariosController.update);
 
 }

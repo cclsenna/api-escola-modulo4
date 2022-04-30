@@ -59,7 +59,7 @@ class FuncionariosDAO {
 
   async excluir(id) {
     return await new Promise((resolve, reject) => {
-      const query = "DELETE FROM alunos WHERE id = ?";
+      const query = "DELETE FROM funcionarios WHERE id = ?";
 
       this._db.get(query, [id], (erro, resultado) => {
         if (!erro) {

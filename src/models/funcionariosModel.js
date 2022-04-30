@@ -1,10 +1,10 @@
 import Validator from "fastest-validator";
 
 class FuncionariosModel {
-    constructor(nome, sobrenome, DatadeNascimento, profissao){
+    constructor(nome, sobrenome, dataNascimento, profissao){
         this._nome = nome;
         this._sobrenome = sobrenome;
-        this._DatadeNascimento = DatadeNascimento;
+        this._dataNascimento = dataNascimento;
         this._profissao = profissao;
 
     }
@@ -13,7 +13,7 @@ class FuncionariosModel {
           nome: { type: "string", optional: false },
           sobrenome: { type: "string", optional: false },
           dataNascimento: { type: "string", optional: false },
-          turma: { type: "number", optional: false },
+          profissao: { type: "string", optional: false },
         };
     
         const validator = new Validator();

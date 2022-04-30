@@ -22,8 +22,12 @@ const RouterProfessor=(app)=>{
 
 const RouterFuncionarios = (app) =>{
   app.get('/funcionarios', FuncionariosController.TodosRegistros);
+  app.get('/funcionarios', FuncionariosController.exibirUm);
+  app.get('/funcionarios', FuncionariosController.Cadastrar);
+  app.get('funcionarios', FuncionariosController.Excluir);
+  app.get('/funcionarios', FuncionariosController.update);
 
 }
 
 
-export {routerAluno,RouterProfessor};
+export {routerAluno,RouterProfessor,RouterFuncionarios};

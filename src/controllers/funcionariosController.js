@@ -5,8 +5,8 @@ import FuncionariosDAO from "../DAO/funcionariosDAO.js";
 import db from "../infra/configDb.js";
 
 
-    /* ------------ 1º Metodo Get exibir todos os registros------------------------------*/
-    /*-------------------Read do crud---------------------------------------------------*/
+    /* ------------ 1º Metodo Get - exibir todos os registros------------------------------*/
+   
     class FuncionariosController {
         static TodosRegistros = (req, res) => {
             const funcionariosDAO = new FuncionariosDAO(db);
@@ -100,8 +100,8 @@ import db from "../infra/configDb.js";
           body.profissao
         );
     
-        updateFuncionarios
-          .updateFuncionarios(id, atualizaFuncionarios)
+        funcionariosDAO
+          .atualizar(id, updateFuncionarios)
           .then((resultado) => {
             res.status(200).json(resultado);
           })

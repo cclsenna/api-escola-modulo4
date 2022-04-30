@@ -1,5 +1,5 @@
 import express from "express";
-import {routerAluno,RouterProfessor} from "./routes/routes.js";
+import {routerAluno,RouterProfessor,RouterFuncionarios} from "./routes/routes.js";
 import cors from "cors";
 
 
@@ -9,6 +9,7 @@ app.use(cors());
 
 routerAluno(app);
 RouterProfessor(app);
+RouterFuncionarios(app);
 
 app.get("/",(req,res)=>{
     res.send(`Bem vindo a API escola. Para mais informações sobre usabilidade, acessar https://github.com/cclsenna/api-escola-modulo4`);

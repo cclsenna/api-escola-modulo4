@@ -79,7 +79,7 @@ class FuncionariosController {
                 res.status(400).json(erro);
             });
     };
-    /*5º-------------------Metodo patch - atualização de registro------------------------------*/
+    /*5º-------------------Metodo patch - atualização de registro-----------------------------*/
     static update = (req, res) => {
         const body = req.body;
         const { id } = req.params;

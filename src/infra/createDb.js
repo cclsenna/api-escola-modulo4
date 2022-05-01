@@ -75,6 +75,41 @@ function populaTabelaProf(){
     });
 
 }
+/* ------------- criando tabela funcionarios -----------------------*/
+
+const FUNCIONARIOS_SCHEMA = `CREATE TABLE IF NOT EXISTS funcionarios (
+    id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+    nome VARCHAR(50) NOT NULL,
+    sobrenome VARCHAR(30) NOT NULL,
+    dataNascimento DATE NOT NULL,
+  	profissao VARCHAR(50) NOT NULL
+    );`;
+
+/*-------------inserindo dados na tabela funcionarios---------------- */
+
+const INSERIR_FUNCIONARIOS = `
+INSERT INTO alunos (nome, sobrenome, dataNascimento, profissao)
+VALUES 
+    ('Joao','geraldo', '1955/05/20', 'porteiro'),
+    ('Tia', 'Maria', '1985/02/22', 'merendeira'),
+    ('Rodrigo', 'Will', '1994/05/2', 'Inspetor'),
+    ('Kassi', 'Façanha', '1987/05/28', 'facilitadora'),
+    ('Caio', 'Sena', '1982/06/10', 'diretor'),
+    ('Paulo', 'Reis', '1974/09/13', 'zelador');
+
+`
+
+function criaTabelaFU() {
+    db.run(FUNCIONARIOS_SCHEMA, (error)=> {
+       if (error) console.log("Erro ao criar tabela de funcionarios");
+    });
+}
+
+function populaTabelaFU() {
+     db.run(INSERIR_FUNCIONARIOS, (error)=> {
+        if (error) console.log("Erro ao popular tabela de funcionarios");
+    });
+}
 
 
 
@@ -84,6 +119,8 @@ db.serialize( () => {
     populaTabelaAl();
     criaTabelaProf();
     populaTabelaProf();
+    criaTabelaFU();
+    populaTabelaFU();
 });
 
 

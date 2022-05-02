@@ -65,7 +65,6 @@ class FuncionariosDAO {
         if (!erro) {
           return resolve("Registro de funcionario deletado!");
         } else {
-          console.log(erro);
           return reject("Não foi possível excluir o registro!");
         }
       }

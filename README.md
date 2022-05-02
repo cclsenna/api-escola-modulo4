@@ -153,25 +153,23 @@ Exemplo Response
 ```
 
 
-- **POST**
-Cadastramento de novos professsores
+- **POST** Cadastramento de novos professsores
 ```
 {url}/professor
 ```
 Request Body(Json)
 ```
  {
-        "nome": "Joao",
-        "sobrenome": "Teste",
-        "dataNascimento": "1988/06/18",
-        "materia": "geografia"
+        "nome": {string},
+        "sobrenome": {string},
+        "dataNascimento": {string},
+        "materia": {string}
     }
 ```
 
 
 
-- **PATCH**
-Atualizar registro de professor já existente
+- **PATCH** Atualizar registro de professor já existente
 ```
 {url}/professor/{matricula}
 ```
@@ -181,14 +179,12 @@ Request Body - Json
     "nome": {string},
     "sobrenome": {string},
     "dataNascimento": {string},
-    "materia": {integer}
+    "materia": {string}
 }
 ```
 
 
-- **DELETE**
-
-Exclusão de registro existente na base
+- **DELETE** Exclusão de registro existente na base
 ```
 {url}/professor/{matricula}
 ```
@@ -197,14 +193,67 @@ Exclusão de registro existente na base
 ### FUNCIONÁRIOS
 - **GET**
 
+Request - busca todos os registros da entidade
+```
+{url}/funcionarios
+```
+Request - busca de registro único por matrícula
+
+```
+{url}/funcionarios/{matricula}
+```
+Exemplo Response
+```
+{
+        "id": 1,
+        "nome": "Joao",
+        "sobrenome": "geraldo",
+        "dataNascimento": "1955/05/20",
+        "profissao": "porteiro"
+    
+}
+
+```
+
+
 
 - **POST**
+Cadastramento de novos funcionários
+```
+{url}/funcionarios
+```
+Request Body(Json)
+```
+ {
+        "nome": {string},
+        "sobrenome": {string},
+        "dataNascimento": {string},
+        "profissao": "{string}"
+    }
+```
 
 
 - **PATCH**
+Atualizar registro de funcionário já existente
+```
+{url}/funcionarios/{matricula}
+```
+Request Body - Json
+```
+{
+    "nome": {string},
+    "sobrenome": {string},
+    "dataNascimento": {string},
+    "profissao": {string}
+}
+```
 
 
 - **DELETE**
+Exclusão de registro existente na base
+```
+{url}/funcionarios/{matricula}
+```
 
 ## Contribuições
 Este projeto foi realizado em conjunto com outros dois membros do curso,onde cada um construiu  uma rota do serviço.

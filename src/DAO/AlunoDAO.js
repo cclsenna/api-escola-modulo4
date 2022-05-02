@@ -58,7 +58,6 @@ class AlunoDao {
           if (!erro) {
             return resolve("Aluno descadastrado com sucesso!");
           } else {
-            console.log(erro);
             return reject("Não foi possível descadastrar aluno!");
           }
         }

@@ -88,7 +88,7 @@ const FUNCIONARIOS_SCHEMA = `CREATE TABLE IF NOT EXISTS funcionarios (
 /*-------------inserindo dados na tabela funcionarios---------------- */
 
 const INSERIR_FUNCIONARIOS = `
-INSERT INTO alunos (nome, sobrenome, dataNascimento, profissao)
+INSERT INTO funcionarios (nome, sobrenome, dataNascimento, profissao)
 VALUES 
     ('Joao','geraldo', '1955/05/20', 'porteiro'),
     ('Tia', 'Maria', '1985/02/22', 'merendeira'),

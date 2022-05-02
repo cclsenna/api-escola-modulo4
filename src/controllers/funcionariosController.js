@@ -1,31 +1,116 @@
-import funcionariosModel from "../models/funcionariosModel"
-import funcionariosDAO from "../DAO/funcionariosDAO"
-import db from "../infra/createDb"
-import res from "express/lib/response"
+/*Importação do model, DAO e db*/
 
-class funcionariosController {
+import FuncionariosModel from "../models/funcionariosModel.js";
+import FuncionariosDAO from "../DAO/funcionariosDAO.js";
+import db from "../infra/configDb.js";
 
-    static exibirFuncionarios = (req, res) => {
-        const funcionariosDAO = new funcionariosDAO(db)
-        funcionariosDAO.lista()
-        .then((funcionarios) => {
-            res.json(funcionarios)
-        }).catch((erro) => {console.log(erro)})
-    }
 
-static cadastrar = (req, res) => {
-        const funcionariosDAO = new funcionariosDAO(db)
+
+/* ------------ 1º Metodo Get - exibir todos os registros------------------------------*/
+
+class FuncionariosController {
+    static TodosRegistros = (req, res) => {
+        const funcionariosDAO = new FuncionariosDAO(db);
+
+        funcionariosDAO
+            .ExibirTodos()
+            .then((funcionarios) => {
+                res.status(200).json(funcionarios);
+            })
+            .catch((erro) => {
+                res.status(400).json(erro);
+            });
+    };
+
+    /* ------------------2º Metodo Get - exibir um registro por id------------------*/
+
+    static exibirUm = (req, res) => {
+        const funcionariosDAO = new FuncionariosDAO(db);
+        const { id } = req.params;
+
+        funcionariosDAO
+            .ListarUm(id)
+            .then((resultado) => {
+                res.status(200).json(resultado);
+            })
+            .catch((erro) => {
+                console.log(erro);
+                res.status(400).json(erro);
+            });
+    };
+
+    /* ------------3º Metodo post - inserção de um registro/cadastrar--------------- */
+
+    static Cadastrar = (req, res) => {
+        const funcionariosDAO = new FuncionariosDAO(db);
         const body = req.body;
-        const novoFuncionarios = new 
-        funcionariosModel(body.nome, body.sobrenome, body.dataNascimento);
 
-        funcionariosDAO.inserir(novoFuncionarios)
-        .then((resultado) => {
-            res.json(resultado)
-        }).catch((erro) => {
-            res.json(erro)
-        })
-}
+        const validador = FuncionariosModel.validaDados(body);
+
+        if (validador != true) {
+            return res.status(400).json({
+                message: "Erro no cadastro",
+                errors: FuncionariosModel.validaDados(body),
+            });
+        }
+        const novoFuncionarios = new FuncionariosModel(body.nome, body.sobrenome, body.dataNascimento, body.profissao);
+
+        funcionariosDAO
+            .inserir(novoFuncionarios)
+            .then((resultado) => {
+                res.status(201).json(resultado);
+            })
+            .catch((erro) => {
+                res.status(400).json(erro);
+            });
+    }
+    /* 4º ------------------Metodo delete - deleção de um registro-------------------------------*/
+
+    static Excluir = (req, res) => {
+        const funcionariosDAO = new FuncionariosDAO(db);
+        const { id } = req.params;
+
+        funcionariosDAO
+            .excluir(id)
+            .then((resultado) => {
+                res.status(200).json(resultado);
+            })
+            .catch((erro) => {
+                res.status(400).json(erro);
+            });
+    };
+    /*5º-------------------Metodo patch - atualização de registro-----------------------------*/
+    static update = (req, res) => {
+        const body = req.body;
+        const { id } = req.params;
+        const funcionariosDAO = new FuncionariosDAO(db);
+
+        const validador = FuncionariosModel.validaDados(body);
+
+        if (validador != true) {
+            return res.status(400).json({
+                message: "Erro ao atualizar cadastro",
+                errors: FuncionariosModel.validaDados(body),
+            });
+        }
+
+        const updateFuncionarios = new FuncionariosModel(
+            body.nome,
+            body.sobrenome,
+            body.dataNascimento,
+            body.profissao
+        );
+
+        funcionariosDAO
+            .atualizar(id, updateFuncionarios)
+            .then((resultado) => {
+                res.status(200).json(resultado);
+            })
+            .catch((erro) => {
+                res.status(400).json(erro);
+            });
+    };
 }
 
-export default funcionariosController;
+
+export default FuncionariosController;

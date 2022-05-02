@@ -1,5 +1,6 @@
 import AlunoController from "../controllers/AlunoController.js";
 import ProfessorController from "../controllers/ProfessorController.js";
+import FuncionariosController from "../controllers/funcionariosController.js";
 
 
 const routerAluno = (app) => {
@@ -19,5 +20,14 @@ const RouterProfessor=(app)=>{
 
 }
 
+const RouterFuncionarios = (app) =>{
+  app.get('/funcionarios', FuncionariosController.TodosRegistros);
+  app.get('/funcionarios/:id', FuncionariosController.exibirUm);
+  app.post('/funcionarios', FuncionariosController.Cadastrar);
+  app.delete('/funcionarios/:id', FuncionariosController.Excluir);
+  app.patch('/funcionarios/:id', FuncionariosController.update);
 
-export {routerAluno,RouterProfessor};
+}
+
+
+export {routerAluno,RouterProfessor,RouterFuncionarios};

@@ -5,12 +5,12 @@ Este projeto foi realizado como parte da conclusão do módulo 4 do curso de des
 <br>
 
 ## Tecnologias Utilizadas no desenvolvimento
-NodeJs (Express, Nodemon, Fastest Validator e SQLlite)
+NodeJs Dependências: Express, Cors, Nodemon, Fastest Validator e SQLlite
 
 ## Acesso à API
 A API foi hospedada no Heroku,o que permite o consumo via internet.
 URL : https://app-escola-resilia.herokuapp.com
-Para verificar como utilzar o serviço, ver a seção de "Rotas Disponíveis" neste documento
+Para verificar como utilizar o serviço, ver a seção de "Rotas Disponíveis" neste documento
 
 
 ## Como executar o projeto ?

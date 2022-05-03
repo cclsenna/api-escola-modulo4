@@ -104,7 +104,7 @@ Request Body - Json
 }
 ```
 
-- **PATCH**
+- **PUT**
 Atualizar registro de aluno já existente
 ```
 {url}/alunos/{matricula}
@@ -169,7 +169,7 @@ Request Body(Json)
 
 
 
-- **PATCH** Atualizar registro de professor já existente
+- **PUT** Atualizar registro de professor já existente
 ```
 {url}/professor/{matricula}
 ```
@@ -233,7 +233,7 @@ Request Body(Json)
 ```
 
 
-- **PATCH**
+- **PUT**
 Atualizar registro de funcionário já existente
 ```
 {url}/funcionarios/{matricula}

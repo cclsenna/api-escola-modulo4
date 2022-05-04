@@ -133,12 +133,12 @@ Request - deleção de um único registro por matrícula
 
 Request - busca todos os registros da entidade
 ```
-{url}/professor
+{url}/professores
 ```
 Request - busca de registro único por matrícula
 
 ```
-{url}/professor/{matricula}
+{url}/professores/{matricula}
 ```
 Exemplo Response
 ```
@@ -155,7 +155,7 @@ Exemplo Response
 
 - **POST** Cadastramento de novos professsores
 ```
-{url}/professor
+{url}/professores
 ```
 Request Body(Json)
 ```
@@ -171,7 +171,7 @@ Request Body(Json)
 
 - **PUT** Atualizar registro de professor já existente
 ```
-{url}/professor/{matricula}
+{url}/professores/{matricula}
 ```
 Request Body - Json
 ```
@@ -186,7 +186,7 @@ Request Body - Json
 
 - **DELETE** Exclusão de registro existente na base
 ```
-{url}/professor/{matricula}
+{url}/professores/{matricula}
 ```
 
 

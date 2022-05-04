@@ -12,11 +12,11 @@ const routerAluno = (app) => {
 };
 
 const RouterProfessor=(app)=>{
-  app.get('/professor',ProfessorController.exibeProf);
-  app.get('/professor/:id',ProfessorController.exibeum);
-  app.post('/professor',ProfessorController.cadastrar);
-  app.delete('/professor/:id',ProfessorController.excluir);
-  app.put('/professor/:id',ProfessorController.atualizar);
+  app.get('/professores',ProfessorController.exibeProf);
+  app.get('/professores/:id',ProfessorController.exibeum);
+  app.post('/professores',ProfessorController.cadastrar);
+  app.delete('/professores/:id',ProfessorController.excluir);
+  app.put('/professores/:id',ProfessorController.atualizar);
 
 }
 

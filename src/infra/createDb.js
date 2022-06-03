@@ -13,20 +13,36 @@ const ALUNOS_SCHEMA = `CREATE TABLE IF NOT EXISTS alunos (
     nome VARCHAR(50) NOT NULL,
     sobrenome VARCHAR(30) NOT NULL,
     dataNascimento DATE NOT NULL,
-  	turma INTEGER NOT NULL
+    tel  VARCHAR(20),
+    email VARCHAR(50),
+    foto VARCHAR(10000),  
+    id_professor INTEGER NOT NULL,
+    turno VARCHAR(1) NOT NULL,
+    nota_historia REAL,
+    nota_matematica REAL,
+    nota_geografia REAL,
+    nota_portugues REAL,
+    nota_artes REAL,
+    nota_edfisica REAL,
+    cep varchar(10),
+    rua VARCHAR(100),
+    bairro VARCHAR(100),
+    cidade VARCHAR(100),
+    uf VARCHAR(2),
+    numero VARCHAR(10)
     );`;
 
-// inserindo dados na tabela alunos
+// VARCHAR(20)inserindo dados na tabela alunos
 
 const INSERIR_ALUNOS = `
-INSERT INTO alunos (nome, sobrenome, dataNascimento, turma)
+INSERT INTO alunos(nome, sobrenome, dataNascimento,tel,email,foto,id_professor,turno,nota_historia,nota_matematica,nota_geografia,nota_portugues,nota_artes,nota_Edfisica,cep,rua,bairro,cidade,uf,numero)
 VALUES 
-    ('Iata','Anderson', '1991/01/15', 13),
-    ('Karla', 'Valeriano', '1993/10/13', 13),
-    ('Giovanni', 'Clayton', '1994/07/2', 13),
-    ('Edu', 'Moreira', '1991/05/20', 13),
-    ('Rodrigo', 'William', '1995/06/18', 13),
-    ('Paulo', 'Reis', '1995/01/13', 13);
+    ('Iata','Anderson', '1991/01/15','219999999',"teste@teste.com.br",null ,'1','M','9.5','9.5','9.5','9.5','9.5','9.5',"22222","rua teste","bairro teste","testópolis","TS","43"),
+    ('Karla', 'Valeriano', '1993/10/13','219999999',"teste@teste.com.br",null,'1','M','9.5','9.5','9.5','9.5','9.5','9.5',"22222","rua teste","bairro teste","testópolis","TS","43"),
+    ('Giovanni', 'Clayton', '1994/07/2','219999999',"teste@teste.com.br",null,'1','M','9.5','9.5','9.5','9.5','9.5','9.5',"22222","rua teste","bairro teste","testópolis","TS","43"),
+    ('Edu', 'Moreira', '1991/05/20','219999999',"teste@teste.com.br",null,'1','M','9.5','9.5','9.5','9.5','9.5','9.5',"22222","rua teste","bairro teste","testópolis","TS","43"),
+    ('Rodrigo', 'William', '1995/06/18','219999999',"teste@teste.com.br",null,'1','M','9.5','9.5','9.5','9.5','9.5','9.5',"22222","rua teste","bairro teste","testópolis","TS","43"),
+    ('Paulo', 'Reis', '1995/01/13','219999999',"teste@teste.com.br",null,'1','M','9.5','9.5','9.5','9.5','9.5','9.5',"22222","rua teste","bairro teste","testópolis","TS","43");
 
 `
 
@@ -55,9 +71,15 @@ const PROF_SCHEMA=`CREATE TABLE IF NOT EXISTS professores (
 const INSERIR_PROF=`
 INSERT INTO professores (nome, sobrenome, dataNascimento,materia)
 VALUES 
-    ('Joel','Santana', '1950/06/18','portugues'),
-    ('Lisca', 'Doido', '1965/02/10','matematica'),
-    ('Zinedine', 'Zidane', '1978/01/15','geografia')
+    ('Haroldo','Lima', '1990/06/20','portugues'),
+    ('Ricardo', 'Alves', '1992/02/10','matematica'),
+    ('Patrícia', 'Silveira', '1990/01/15','geografia'),
+    ('Flávia', 'da Silva', '1989/02/20','geografia'),
+    ('Karlla', 'Antunes', '1980/11/28','geografia'),
+    ('Marluce', 'Ramos', '1985/12/12','geografia'),
+    ('Cláudia', 'Diniz', '1982/06/01','geografia'),
+    ('Lúcia', 'Carvalho', '1983/06/20','geografia'),
+    ('Vinícius', 'Lopes', '1983/02/10','geografia');
 `
 
 

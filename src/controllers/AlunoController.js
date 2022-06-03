@@ -14,7 +14,9 @@ class AlunoController {
       .catch((erro) => {
         res.status(400).json(erro);
       });
-  };
+  }
+
+
 
   static exibirUmPorMatricula = (req, res) => {
     const alunoDao = new AlunoDao(db);
@@ -44,7 +46,7 @@ class AlunoController {
       });
     }
 
-    const novoAluno = new AlunoModel(body.nome, body.sobrenome, body.dataNascimento, body.turma);
+    const novoAluno = new AlunoModel(body.nome, body.sobrenome, body.dataNascimento,body.tel,body.email,body.foto,body.id_professor,body.turno,body.nota_historia,body.nota_matematica,body.nota_geografia,body.nota_portugues,body.nota_artes,body.nota_edfisica,body.cep,body.rua,body.bairro,body.cidade,body.uf,body.numero);
 
     alunoDao
       .inserir(novoAluno)

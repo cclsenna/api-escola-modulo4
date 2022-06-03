@@ -32,16 +32,19 @@ class AlunoDao {
     });
   }
 
+
   async inserir(aluno) {
     return await new Promise((resolve, reject) => {
-      const query = "INSERT INTO alunos (nome,sobrenome,dataNascimento,turma) values (?,?,?,?)";
+      console.log(aluno);
+      const query = "INSERT INTO alunos (nome, sobrenome, dataNascimento,tel,email,foto,id_professor,turno,nota_historia,nota_matematica,nota_geografia,nota_portugues,nota_artes,nota_Edfisica,cep,rua,bairro,cidade,uf,numero) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
       this._db.run(
-        query, [aluno._nome, aluno._sobrenome, aluno._dataNascimento,aluno._turma],
+        query, [aluno._nome, aluno._sobrenome, aluno._dataNascimento,aluno._tel,aluno._email,aluno._foto,aluno._id_professor,aluno._turno,aluno._nota_historia,aluno._nota_matematica,aluno.__nota_geografia,aluno._nota_portugues,aluno._nota_artes,aluno._nota_Edfisica,aluno._cep,aluno._rua,aluno._bairro,aluno._cidade,aluno._uf,aluno._numero],
         (erro, resultado) => {
           if (!erro) {
             return resolve("Aluno cadastrado");
           } else {
+            console.log(erro.message);
             
             return reject("falha no cadastro");
           }

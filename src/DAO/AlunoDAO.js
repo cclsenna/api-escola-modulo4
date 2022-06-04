@@ -70,9 +70,9 @@ class AlunoDao {
 
   async atualizar(matricula, aluno) {
     return await new Promise((resolve, reject) => {
-      const query = `UPDATE alunos SET nome = ?, sobrenome = ?, dataNascimento = ?, turma = ? WHERE matricula = ?`;
+      const query = `UPDATE alunos SET nome=?, sobrenome=?, dataNascimento=?,tel=?,email=?,foto=?,id_professor=?,turno=?,nota_historia=?,nota_matematica=?,nota_geografia=?,nota_portugues=?,nota_artes=?,nota_Edfisica=?,cep=?,rua=?,bairro=?,cidade=?,uf=?,numero=? WHERE matricula = ?`;
 
-      this._db.run(query, [aluno._nome, aluno._sobrenome, aluno._dataNascimento, aluno._turma, matricula], (erro, resultado) => {
+      this._db.run(query, [aluno._nome, aluno._sobrenome, aluno._dataNascimento,aluno._tel,aluno._email,aluno._foto,aluno._id_professor,aluno._turno,aluno._nota_historia,aluno._nota_matematica,aluno.__nota_geografia,aluno._nota_portugues,aluno._nota_artes,aluno._nota_Edfisica,aluno._cep,aluno._rua,aluno._bairro,aluno._cidade,aluno._uf,aluno._numero], (erro, resultado) => {
           if (!erro) {
             return resolve("Cadastro atualizado com sucesso!");
           } else {

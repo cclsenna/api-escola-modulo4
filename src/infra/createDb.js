@@ -37,9 +37,9 @@ const ALUNOS_SCHEMA = `CREATE TABLE IF NOT EXISTS alunos (
 const INSERIR_ALUNOS = `
 INSERT INTO alunos(nome, sobrenome, dataNascimento,tel,email,foto,id_professor,turno,nota_historia,nota_matematica,nota_geografia,nota_portugues,nota_artes,nota_Edfisica,cep,rua,bairro,cidade,uf,numero)
 VALUES 
-    ('Iata','Anderson', '1991/01/15','219999999',"iata@teste.com.br",'http://www.objetodireto.com.br/fotos/tuca%203x4.jpg' ,'1','T','9.5','9.5','9.5','9.5','9.5','9.5',"22222","rua teste","bairro teste","testópolis","TS","43"),
-    ('Karla', 'Valeriano', '1993/10/13','219999999',"karla@teste.com.br",'https%3A%2F%2Fimageserve.babycenter.com%2F16%2F000%2F416%2FR123DdZ0d94B1pb6AacEiJk7HFF843Br_med.jpg&imgrefurl=https%3A%2F%2Fbrasil.babycenter.com%2Fthread%2F3877204%2Fprimeira-foto-3x4-dos-nossos-filhos-postem-aqui&tbnid=FBXN9jLCOh_QPM&vet=12ahUKEwjdmK6U55z4AhWsrZUCHVYdCWcQxiAoAXoECAAQGQ..i&docid=K6jc5G_2hiofkM&w=300&h=400&itg=1&q=foto%20de%20crian%C3%A7a%20de%203x4&ved=2ahUKEwjdmK6U55z4AhWsrZUCHVYdCWcQxiAoAXoECAAQGQ','2','M','9.5','9.5','9.5','9.5','9.5','9.5',"22222","rua teste","bairro teste","testópolis","TS","43"),
-    ('Giovanni', 'Clayton', '1994/07/2','219999999',"gio@teste.com.br",'https://imageserve.babycenter.com/18/000/416/UHSrrN03ASPW94xm2vdJ1BxYEDx7dd46_med.jpg','4','T','9.5','9.5','9.5','9.5','9.5','9.5',"22222","rua teste","bairro teste","testópolis","TS","43"),
+    ('Iata','Anderson', '1991/01/15','219999999',"iata@teste.com.br",'http://www.objetodireto.com.br/fotos/tuca%203x4.jpg' ,'1','T','7.6','9.5','7.5','7.2','5.5','5.5',"22222","rua teste","bairro teste","testópolis","TS","43"),
+    ('Karla', 'Valeriano', '1993/10/13','219999999',"karla@teste.com.br",'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ3QayYfjyjPDZZKQKwQei-NsfXmiW4PWcBGA&usqp=CAU','2','M','9.5','9.5','9.5','9.5','9.5','9.5',"22222","rua teste","bairro teste","testópolis","TS","43"),
+    ('Giovanni', 'Clayton', '1994/07/2','219999999',"gio@teste.com.br",'https://imageserve.babycenter.com/18/000/416/UHSrrN03ASPW94xm2vdJ1BxYEDx7dd46_med.jpg','4','T','5.5','8.5','9.5','9.5','9.5','9.5',"22222","rua teste","bairro teste","testópolis","TS","43"),
     ('Edu', 'Moreira', '1991/05/20','219999999',"edu@teste.com.br",'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1EgN5m-7GP_vyfegRbnJDZms4JZnZrw0QKA&usqp=CAU','2','M','9.5','9.5','9.5','9.5','9.5','9.5',"22222","rua teste","bairro teste","testópolis","TS","43"),
     ('Rodrigo', 'William', '1995/06/18','219999999',"rodrigo@teste.com.br",'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSyQnQ_2W2ee3nUuCPHKkySIkF25N2h-Yazg&usqp=CAU','4','M','9.5','9.5','9.5','9.5','9.5','9.5',"22222","rua teste","bairro teste","testópolis","TS","43"),
     ('Paulo', 'Reis', '1995/01/13','219999999',"paulo@teste.com.br",'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR1ZQb9-Pf4oBGY7TuEiK3o8Z-1vMo_dQNmq7BouyGhuTSpGiBrqgaCdM7mJmYuXPFNyUM&usqp=CAU','3','M','9.5','9.5','9.5','9.5','9.5','9.5',"22222","rua teste","bairro teste","testópolis","TS","43"),
@@ -54,10 +54,6 @@ VALUES
     ('Inara', 'Almeida', '1995/01/13','219999999',"inara@teste.com.br",'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPJm5ciPYbK0PWHb10IcpIhNtIUXw9N8u_eQ&usqp=CAU','1','M','9.5','8.5','9.5','6.2','9.7','9.3',"22222","rua teste","bairro teste","testópolis","TS","43"),
     ('Douglas', 'Andrade', '1995/01/13','219999999',"douglas@teste.com.br",'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiy3BcoyohFr15cEoi3lUF0ON9dHIQNdFS2w&usqp=CAU','1','M','9.5','9.5','9.5','9.5','9.5','9.5',"22222","rua teste","bairro teste","testópolis","TS","43"),
     ('Caio', 'Senna', '1993/04/20','219999999',"caio@teste.com.br",'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPV9BS1fg8ne_U7b7L4aTa3s5dZp2npN9r5w&usqp=CAU','1','M','8.0','7.5','6.1','6.2','7.0','8.2',"24110310","rua teste","bairro teste","testópolis","RJ","43");
-
-
-    
-
 
 `
 
